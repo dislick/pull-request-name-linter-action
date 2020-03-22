@@ -1,18 +1,13 @@
+# pull-request-name-linter-action
+
 [![Actions Status](https://github.com/dislick/pull-request-name-linter-action/workflows/ci/badge.svg)](https://github.com/JulienKode/pull-request-name-linter-action/actions)
 
-**GitHub action** to automatically **lint pull request name** with [**commitlint**](https://commitlint.js.org).
-This is useful if squash merge your pull request for example.
-
-**Note**: If you are looking to lint the commits of your pull request with commitlint you can use [commitlint-github-action](https://github.com/wagoid/commitlint-github-action)
-
-# Pull request name linter with commitlint
-
-## Configuration
+Lints pull request names with [commitlint](https://commitlint.js.org).
 
 ## Usage
 
 ```yaml
-name: pr-name-linter
+name: lint-pr-names
 on:
   pull_request:
     types: ['opened', 'edited', 'reopened', 'synchronize']
@@ -24,3 +19,8 @@ jobs:
       - uses: actions/checkout@v1
       - uses: dislick/pull-request-name-linter-action
 ```
+
+## Limitations
+
+- Only works when storing commitlint config in `commitlint.config.js`
+- You cannot use `extend` in commitlint config
