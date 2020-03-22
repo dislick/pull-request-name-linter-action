@@ -1,0 +1,12 @@
+name: 'test'
+
+on:
+  pull_request:
+    types: ['opened', 'edited', 'reopened', 'synchronize']
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: dislick/pull-request-name-linter-action@v1.0.0
